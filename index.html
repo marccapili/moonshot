@@ -82,7 +82,7 @@
     .mobile-menu .btn { width: 100%; justify-content: center; margin-top: 8px; }
 
     /* ===== HERO ===== */
-    .hero { background: linear-gradient(135deg, #f0f8ff 0%, #faf0ff 50%, #f0f8ff 100%); padding: 80px 0 60px; overflow: hidden; }
+    .hero { background: linear-gradient(135deg, #f0f8ff 0%, #faf0ff 50%, #f0f8ff 100%); padding: 80px 0 80px; overflow: visible; }
     .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
     .hero-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--purple); margin-bottom: 20px; }
     .hero-title { font-family: var(--font-heading); font-size: clamp(2.4rem, 5vw, 3.8rem); font-weight: 600; line-height: 1.1; color: var(--dark); margin-bottom: 20px; }
@@ -347,7 +347,7 @@
           <h1 class="hero-title">Strategic HR Solutions<br>That Drive <span class="accent">Real Impact</span></h1>
           <p class="hero-desc">We partner with leaders to build people-first cultures, strengthen performance, and navigate change with confidence.</p>
           <div class="hero-ctas">
-            <a class="btn btn-primary" onclick="showPage('services')" href="#"><span>Explore Services</span><span class="arrow">→</span></a>
+            <a class="btn btn-primary" onclick="showPage('services')" href="#"><span>Explore Services</span></a>
             <a class="btn btn-outline" onclick="showPage('contact')" href="#">Let's Connect</a>
           </div>
           <div class="hero-rating">
@@ -364,28 +364,86 @@
 
         <!-- Hero Photo -->
         <div class="hero-visual">
-          <div style="position:relative; width:100%; max-width:480px;">
-            <!-- Decorative background circle -->
-            <div style="position:absolute; inset:0; background:radial-gradient(circle at 60% 40%, #d0eafb 0%, #e8d0f8 60%, transparent 100%); border-radius:50% 50% 50% 50% / 60% 60% 40% 40%; z-index:0;"></div>
-            <!-- Moonshot icon watermark behind photo -->
-            <img src="images/MOONSHOT ICON BLUE.png" alt="" style="position:absolute; right:-10px; top:10px; width:55%; opacity:0.18; z-index:1; pointer-events:none;" />
-            <!-- Hero photo -->
+          <!-- Outer wrapper sets the stage -->
+          <div style="position:relative; width:100%; max-width:520px; min-height:480px; display:flex; align-items:flex-end;">
+
+            <!-- Light gradient background blob -->
+            <div style="
+              position:absolute; inset:0;
+              background: linear-gradient(135deg, #eaf4fd 0%, #f3e8ff 60%, #eaf4fd 100%);
+              border-radius: 32px;
+              z-index:0;
+            "></div>
+
+            <!-- MOONSHOT ICON — large, centered, behind everything -->
+            <img
+              src="images/MOONSHOT ICON BLUE.png"
+              alt=""
+              style="
+                position:absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -54%);
+                width: 88%;
+                max-width: 460px;
+                opacity: 0.22;
+                z-index: 1;
+                pointer-events: none;
+                user-select: none;
+              "
+            />
+
+            <!-- Sparkle dots (decorative, like in reference) -->
+            <div style="position:absolute;top:14%;left:56%;z-index:2;pointer-events:none;">
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                <path d="M14 2L15.5 12.5L26 14L15.5 15.5L14 26L12.5 15.5L2 14L12.5 12.5Z" fill="#3AA5ED" opacity="0.7"/>
+              </svg>
+            </div>
+            <div style="position:absolute;top:6%;left:72%;z-index:2;pointer-events:none;">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <path d="M7 1L7.75 6.25L13 7L7.75 7.75L7 13L6.25 7.75L1 7L6.25 6.25Z" fill="#3AA5ED" opacity="0.5"/>
+              </svg>
+            </div>
+            <div style="position:absolute;top:28%;left:80%;z-index:2;pointer-events:none;">
+              <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+                <path d="M5 1L5.5 4.5L9 5L5.5 5.5L5 9L4.5 5.5L1 5L4.5 4.5Z" fill="#9E1994" opacity="0.45"/>
+              </svg>
+            </div>
+
+            <!-- Hero photo — sits on top of icon, no border-radius so it bleeds naturally -->
             <img
               src="images/hero-photo.png"
-              alt="Moonshot HR Coach"
-              style="position:relative; z-index:2; width:100%; border-radius:24px; object-fit:cover; max-height:480px;"
+              alt="Jyoti Marwaha — CEO & Founder"
+              style="
+                position: relative;
+                z-index: 3;
+                width: 100%;
+                max-height: 500px;
+                object-fit: contain;
+                object-position: bottom center;
+                display: block;
+                border-radius: 0 0 32px 32px;
+              "
             />
-            <!-- Floating badge -->
-            <div style="position:absolute; bottom:28px; right:-16px; z-index:3; background:white; border-radius:14px; padding:14px 18px; box-shadow:0 8px 32px rgba(0,0,0,0.13); display:flex; align-items:center; gap:12px;">
-              <div style="width:38px;height:38px;background:var(--blue);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-                <img src="images/MOONSHOT ICON BLUE.png" alt="" style="width:24px;height:24px;filter:brightness(0) invert(1);" />
-              </div>
-              <div>
-                <div style="font-size:13px;font-weight:700;color:var(--dark);">Partner in People.</div>
-                <div style="font-size:12px;color:var(--gray);margin-top:2px;">Driven by Purpose.</div>
-                <div style="width:28px;height:3px;background:var(--purple);border-radius:2px;margin-top:6px;"></div>
-              </div>
+
+            <!-- Name badge card — bottom left, overlapping photo -->
+            <div style="
+              position: absolute;
+              bottom: -18px;
+              left: 16px;
+              z-index: 4;
+              background: white;
+              border-radius: 14px;
+              padding: 16px 22px;
+              box-shadow: 0 8px 36px rgba(0,0,0,0.14);
+              min-width: 260px;
+            ">
+              <div style="font-size:18px; font-weight:800; color:var(--dark); letter-spacing:-0.3px; line-height:1.2;">JYOTI MARWAHA</div>
+              <div style="font-size:12px; font-weight:700; color:var(--dark); margin-top:4px; letter-spacing:0.2px;">MSHRM, PHR, CEC, CCC</div>
+              <div style="width:100%; height:2px; background:linear-gradient(90deg, var(--purple), var(--blue)); border-radius:2px; margin:8px 0;"></div>
+              <div style="font-size:12.5px; color:var(--blue); font-weight:600;">CEO/Founder, HR Consultant & Executive Coach</div>
             </div>
+
           </div>
         </div>
       </div>
